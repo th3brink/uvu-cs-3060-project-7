@@ -16,16 +16,16 @@ Threads and Mutex
 
 
 In this project you will create a simple program that creates and runs four threads. Each thread will run the same code, given below:
-    void* incrementCounter( void* m )
-    {
-        int i;
-        for (i = 0; i < 10; ++i)
-        {
-            int tempValue = count;
-            sleep(1);
-            tempValue = tempValue + 1;
-            count = tempValue;
-        }
-   
-        return NULL;
-    }
+       void* incrementCounter( void* m )
+       {
+           int i;
+           for (i = 0; i < 10; ++i)
+           {
+               int tempValue = count;
+               sleep(1);
+               tempValue = tempValue + 1;
+               count = tempValue;
+           }
+      
+           return NULL;
+       }
