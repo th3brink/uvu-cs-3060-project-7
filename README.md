@@ -16,6 +16,7 @@ Threads and Mutex
 
 
 In this project you will create a simple program that creates and runs four threads. Each thread will run the same code, given below:
+       
        void* incrementCounter( void* m )
        {
            int i;
@@ -25,7 +26,6 @@ In this project you will create a simple program that creates and runs four thre
                sleep(1);
                tempValue = tempValue + 1;
                count = tempValue;
-           }
-      
+           }      
            return NULL;
        }
