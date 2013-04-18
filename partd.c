@@ -11,6 +11,8 @@
 
 
 int count;
+static pthread_mutex_t countMutex = PTHREAD_MUTEX_INITIALIZER; 
+
 // incrementCounter
 // Description: Increments count
 // Return: None
@@ -34,6 +36,10 @@ int main ( ) {
         pthread_t thread4;
         pthread_create(&thread4, NULL, &incrementCounter,NULL);
     
+		pthread_join (thread1, NULL);
+		pthread_join (thread2, NULL);
+		pthread_join (thread3, NULL);
+		pthread_join (thread4, NULL);
         printf("count: %d\n ", count);
     
         return 0;
@@ -42,13 +48,15 @@ int main ( ) {
 void* incrementCounter( void* m )
 {
         int i;
-        for (i = 0; i < 10; ++i)
-        {
-            int tempValue = count;
-            sleep(1);
+		pthread_mutex_lock(&countMutex);
+        for (i = 0; i < 10/*1000000*/; ++i)	// the larger value in place of 10 was able
+        {									// to demonstrate the point more clearly.
+            int tempValue = count;			// using  10 it always ended in 40 anyway
+            //sleep(1);
             tempValue = tempValue + 1;
             count = tempValue;
         }
+		pthread_mutex_unlock(&countMutex);
         return NULL;
 }
 
