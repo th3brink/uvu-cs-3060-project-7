@@ -1,20 +1,28 @@
+// Student: Bryson Murray, Kory Kehl, James Brinkerhoff
+// Instructor: John Jolly
+// Class: CS 3060-001
+// Project: 7
+// Date: Apr 18, 2013
+// Description: This code will be exactly like the code for part B, with one exception. In this program, you should remove, or comment out, the line of code in the thread function.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include<pthread.h>
 
-
 int count;
-
+// incrementCounter
+// Description: Increments count
+// Return: None
+// Paramaters: None
 void* incrementCounter(void*);
-
 
 int main ( ) {
 
 	printf("Students:\n");
 	printf("\t-James Brinkerhoff - 10621032\n");
 	printf("\t-Bryson Murray - 10501259\n");
-	printf("\t-Kory Kehl - 1043993\n");
-	printf("Class CS 3060 - Project 5\n");
+	printf("\t-Kory Kehl - 10439952\n");
+	printf("Class CS 3060 - Project 7\n");
 
 	pthread_t thread1;
 	pthread_create(&thread1, NULL, &incrementCounter,NULL);

@@ -1,9 +1,19 @@
+// Student: Bryson Murray, Kory Kehl, James Brinkerhoff
+// Instructor: John Jolly
+// Class: CS 3060-001
+// Project: 7
+// Date: Apr 18, 2013
+// Description: Your program should create the four threads, as directed above. After starting all of the threads, insert the code required to wait for each of the threads to finish. Then print out the value of count.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 
-
 int count;
+// incrementCounter
+// Description: Increments count and sleeps(1)
+// Return: None
+// Paramaters: None
 void* incrementCounter(void*);
 
 int main ( ) {
@@ -12,7 +22,7 @@ int main ( ) {
         printf("\t-James Brinkerhoff - 10621032\n");
         printf("\t-Bryson Murray - 10501259\n");
         printf("\t-Kory Kehl - 10439952\n");
-        printf("Class CS 3060 - Project 5\n");
+        printf("Class CS 3060 - Project 7\n");
 
         pthread_t thread1;
         pthread_create(&thread1, NULL, &incrementCounter,NULL);
